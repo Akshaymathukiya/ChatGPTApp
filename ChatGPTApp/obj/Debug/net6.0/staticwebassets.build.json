@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "P26vKWz43A17GPnZeG5t8+r3oiNbUuauOd2UH7CqSJg=",
+  "Hash": "57G53hE+PPq9TwcbGrKYHYTBXBhoLadtlGrfy7mQSNw=",
   "Source": "ChatGPTApp",
   "BasePath": "_content/ChatGPTApp",
   "Mode": "Default",
@@ -51,6 +51,40 @@
       "OriginalItemSpec": "C:\\Users\\pct230\\source\\repos\\ChatGPTApp\\ChatGPTApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ChatGPTApp.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\pct230\\source\\repos\\ChatGPTApp\\ChatGPTApp\\wwwroot\\css\\Index.css",
+      "SourceId": "ChatGPTApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pct230\\source\\repos\\ChatGPTApp\\ChatGPTApp\\wwwroot\\",
+      "BasePath": "_content/ChatGPTApp",
+      "RelativePath": "css/Index.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Index.css"
+    },
+    {
+      "Identity": "C:\\Users\\pct230\\source\\repos\\ChatGPTApp\\ChatGPTApp\\wwwroot\\css\\Registration.css",
+      "SourceId": "ChatGPTApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pct230\\source\\repos\\ChatGPTApp\\ChatGPTApp\\wwwroot\\",
+      "BasePath": "_content/ChatGPTApp",
+      "RelativePath": "css/Registration.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Registration.css"
+    },
+    {
       "Identity": "C:\\Users\\pct230\\source\\repos\\ChatGPTApp\\ChatGPTApp\\wwwroot\\css\\site.css",
       "SourceId": "ChatGPTApp",
       "SourceType": "Discovered",
@@ -83,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\pct230\\source\\repos\\ChatGPTApp\\ChatGPTApp\\wwwroot\\js\\Register.js",
+      "SourceId": "ChatGPTApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pct230\\source\\repos\\ChatGPTApp\\ChatGPTApp\\wwwroot\\",
+      "BasePath": "_content/ChatGPTApp",
+      "RelativePath": "js/Register.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Register.js"
     },
     {
       "Identity": "C:\\Users\\pct230\\source\\repos\\ChatGPTApp\\ChatGPTApp\\wwwroot\\js\\site.js",

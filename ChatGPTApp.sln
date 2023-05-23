@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatGPTApp", "ChatGPTApp\ChatGPTApp.csproj", "{49C95128-C9B4-43B2-AB67-08F9FCA94001}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatGPTApp", "ChatGPTApp\ChatGPTApp.csproj", "{49C95128-C9B4-43B2-AB67-08F9FCA94001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatGPT.Entities", "ChatGPT.Entities\ChatGPT.Entities.csproj", "{DF8786FF-F456-4E6A-9A0F-158C26BC2534}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatGPT.Repository", "ChatGPT.Repository\ChatGPT.Repository.csproj", "{3703DE5E-E7A4-437E-9D22-571A5D797D39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{49C95128-C9B4-43B2-AB67-08F9FCA94001}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49C95128-C9B4-43B2-AB67-08F9FCA94001}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49C95128-C9B4-43B2-AB67-08F9FCA94001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF8786FF-F456-4E6A-9A0F-158C26BC2534}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF8786FF-F456-4E6A-9A0F-158C26BC2534}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF8786FF-F456-4E6A-9A0F-158C26BC2534}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF8786FF-F456-4E6A-9A0F-158C26BC2534}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3703DE5E-E7A4-437E-9D22-571A5D797D39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3703DE5E-E7A4-437E-9D22-571A5D797D39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3703DE5E-E7A4-437E-9D22-571A5D797D39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3703DE5E-E7A4-437E-9D22-571A5D797D39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

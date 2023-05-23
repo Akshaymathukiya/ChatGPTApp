@@ -1,4 +1,7 @@
-﻿using ChatGPTApp.Models;
+﻿using ChatGPT.Entities.Models;
+using ChatGPT.Entities.ViewModels;
+using ChatGPT.Repository.Interface;
+using ChatGPTApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using OpenAI_API;
 using System.Diagnostics;
@@ -7,11 +10,10 @@ namespace ChatGPTApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IUserRepository _iUserRepo;
+        public HomeController(IUserRepository userRepo)
         {
-            _logger = logger;
+            _iUserRepo = userRepo;
         }
         public IActionResult Index()
         {
@@ -19,20 +21,66 @@ namespace ChatGPTApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string userSearch)
+        public IActionResult Index(User model)
         {
-            ChatGPTModel chatGPTModel = new ChatGPTModel();
-            var openAi = new OpenAIAPI("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");
+            var newUser = _iUserRepo.VerifyUserLogin(model);
+            if(newUser == null)
+            {
+                TempData["error"] = "Please Complete Your Registration";
+                return View();
+            }
+            else
+            {
+                if(model.Email == newUser.Email && model.Password == newUser.Password)
+                {
+                    HttpContext.Session.SetString("userName", newUser.Firstname + " " + newUser.Lastname);
+                    HttpContext.Session.SetInt32("userId", newUser.Id);
+
+                    TempData["success"] = "Login Successfully";
+                    return RedirectToAction("Home", "Home");
+                }
+                else
+                {
+                    TempData["error"] = "Mismatch email or password!!!";
+                    return View();
+                }
+            }
+        }
+
+        public IActionResult Registration()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddUsers(ChatGptViewModel user_data)
+        {
+            var addUser = _iUserRepo.AddUserData(user_data);
+            return Json(new { success = true, redirectUrl =  "/Home/Index" });
+            
+        }
+
+        public IActionResult Home()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Home(string userSearch)
+        {
+            ChatGptViewModel chatGPTModel = new ChatGptViewModel();
+            var openAi = new OpenAIAPI("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");
 
             var completions = openAi.Completions.CreateCompletionAsync(
             prompt: userSearch,
             model: "text-davinci-002",
-            max_tokens:4000,
+            max_tokens: 4000,
             temperature: 0.5f
             );
             chatGPTModel.user_result = completions.Result.Completions.ElementAt(0).Text;
             return View(chatGPTModel);
         }
+
 
         public IActionResult Privacy()
         {
