@@ -1,0 +1,15 @@
+﻿@model ChatGPT.Entities.ViewModels.ChatGptViewModel
+<partial name="_TopNavbar" />
+<div class="container">
+    @{
+        if (@Model is not null)
+        {
+            foreach(var history in @Model.getHistory)
+            {
+                <h4>@history.Question</h4>
+                <h6>Ans:</h6>
+                <p>@history.Answer</p>
+            }
+        }
+    }
+</div>

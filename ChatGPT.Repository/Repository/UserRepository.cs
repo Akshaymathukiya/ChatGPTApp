@@ -53,5 +53,23 @@ namespace ChatGPT.Repository.Repository
                 return newUser;
             }
         }
+
+        public void user_history(int user_id, string que, string ans)
+        {
+            UserHistory AddUserData = new UserHistory();    
+            AddUserData.UserId = user_id;
+            AddUserData.Question = que;
+            AddUserData.Answer = ans;
+            AddUserData.CreatedAt = DateTime.Now;
+
+            _db.UserHistories.Add(AddUserData);
+            _db.SaveChanges();
+        }
+
+        public List<UserHistory> getHistory(int userId)
+        {
+            var userHistory = _db.UserHistories.Where(u=>u.UserId == userId).ToList();
+            return userHistory;
+        }
     }
 }

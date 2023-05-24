@@ -11,3 +11,4 @@ C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Entities\obj\Debug\net6.0\ChatGP
 C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Entities\obj\Debug\net6.0\ref\ChatGPT.Entities.dll
 C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Entities\obj\Debug\net6.0\ChatGPT.Entities.pdb
 C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Entities\obj\Debug\net6.0\ChatGPT.Entities.genruntimeconfig.cache
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Entities\obj\Debug\net6.0\ChatGPT.Entities.csproj.AssemblyReference.cache

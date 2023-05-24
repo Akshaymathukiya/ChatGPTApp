@@ -12,7 +12,8 @@ namespace ChatGPT.Repository.Interface
     {
         public bool AddUserData(ChatGptViewModel user_data);
         public User VerifyUserLogin(User user);
-
+        public void user_history(int user_id, string que, string ans);
+        public List<UserHistory> getHistory(int userId);
 
     }
 }
