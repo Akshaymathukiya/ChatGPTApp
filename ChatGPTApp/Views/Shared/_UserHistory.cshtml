@@ -1,0 +1,32 @@
+﻿
+    @foreach (var history in @Model.getHistory)
+            {
+                <div class="d-flex justify-content-between">
+                    <h4>@history.Question</h4>
+                    <i class="bi bi-trash3-fill btn" style="height:20px; width:20px; color:red" data-bs-toggle="modal" data-bs-target="#deleteHistoryModal-@history.Id"></i>
+                </div>
+
+                <h6>Ans:</h6>
+                <p>@history.Answer</p>
+                <hr />
+                @*--------------delete modal---------------------*@
+
+                <div class="modal fade" id="deleteHistoryModal-@history.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Delete History</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to <b class="text-danger">delete</b> this item?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-outline-danger" onclick="delete_history(@history.Id)" data-bs-dismiss="modal">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+

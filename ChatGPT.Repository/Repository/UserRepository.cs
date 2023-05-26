@@ -71,5 +71,20 @@ namespace ChatGPT.Repository.Repository
             var userHistory = _db.UserHistories.Where(u=>u.UserId == userId).ToList();
             return userHistory;
         }
+
+        public bool delete_history(int id)
+        {
+            var user_history = _db.UserHistories.FirstOrDefault(u=>u.Id == id);
+            if (user_history != null)
+            {
+                _db.UserHistories.Remove(user_history);
+                _db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

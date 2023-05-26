@@ -1,15 +1,16 @@
 ﻿@model ChatGPT.Entities.ViewModels.ChatGptViewModel
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 <partial name="_TopNavbar" />
-<div class="container">
+<div class="container" id="history_container">
     @{
         if (@Model is not null)
         {
-            foreach(var history in @Model.getHistory)
-            {
-                <h4>@history.Question</h4>
-                <h6>Ans:</h6>
-                <p>@history.Answer</p>
-            }
+            <partial name="_UserHistory"/>
         }
     }
 </div>
+
+<script src="~/js/History.js"></script>
