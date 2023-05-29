@@ -102,7 +102,7 @@ namespace ChatGPTApp.Controllers
         {
             var httpClient = new HttpClient();
             var apiUrl = "https://api.openai.com/v1/chat/completions";
-            var apiKey = "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"; // Replace with your actual API key
+            var apiKey = "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"; // Replace with your actual API key
 
             var payload = new
             {

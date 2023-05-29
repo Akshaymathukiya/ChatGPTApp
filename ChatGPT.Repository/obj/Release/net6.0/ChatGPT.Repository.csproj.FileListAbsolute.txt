@@ -1,0 +1,17 @@
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Repository\bin\Release\net6.0\ChatGPT.Repository.deps.json
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Repository\bin\Release\net6.0\ChatGPT.Repository.runtimeconfig.json
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Repository\bin\Release\net6.0\ChatGPT.Repository.dll
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Repository\bin\Release\net6.0\ref\ChatGPT.Repository.dll
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Repository\bin\Release\net6.0\ChatGPT.Repository.pdb
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Repository\bin\Release\net6.0\ChatGPT.Entities.dll
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Repository\bin\Release\net6.0\ChatGPT.Entities.pdb
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Repository\obj\Release\net6.0\ChatGPT.Repository.csproj.AssemblyReference.cache
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Repository\obj\Release\net6.0\ChatGPT.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Repository\obj\Release\net6.0\ChatGPT.Repository.AssemblyInfoInputs.cache
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Repository\obj\Release\net6.0\ChatGPT.Repository.AssemblyInfo.cs
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Repository\obj\Release\net6.0\ChatGPT.Repository.csproj.CoreCompileInputs.cache
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Repository\obj\Release\net6.0\ChatGPT.Repository.csproj.CopyComplete
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Repository\obj\Release\net6.0\ChatGPT.Repository.dll
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Repository\obj\Release\net6.0\ref\ChatGPT.Repository.dll
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Repository\obj\Release\net6.0\ChatGPT.Repository.pdb
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPT.Repository\obj\Release\net6.0\ChatGPT.Repository.genruntimeconfig.cache
