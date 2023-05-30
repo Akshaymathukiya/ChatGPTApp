@@ -30,7 +30,6 @@ namespace ChatGPT.Repository.Repository
                 user.Mobilenumber = user_data.MobileNumber;
                 user.Password = user_data.Password;
                 user.CreatedAt = DateTime.Now;
-
                 _db.Users.Add(user);
                 _db.SaveChanges();
                 return true;
@@ -71,7 +70,14 @@ namespace ChatGPT.Repository.Repository
             var userHistory = _db.UserHistories.Where(u=>u.UserId == userId).ToList();
             return userHistory;
         }
+        public List<UserHistory> getTodaysHistory(int userId)
+        {
+            DateTime currentDate = DateTime.Now;
+            DateTime dateOnly = currentDate.Date;
 
+            var todayHist = _db.UserHistories.Where(u=>u.UserId==userId && u.CreatedAt.Date == dateOnly).ToList();
+            return todayHist;
+        }
         public bool delete_history(int id)
         {
             var user_history = _db.UserHistories.FirstOrDefault(u=>u.Id == id);

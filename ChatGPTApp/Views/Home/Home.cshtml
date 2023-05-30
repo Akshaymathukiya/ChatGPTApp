@@ -5,15 +5,15 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
-<partial name="_TopNavbar"/>
-<partial name="_ToastrMessage"/>
+<partial name="_TopNavbar" />
+<partial name="_ToastrMessage" />
 
 <div class="">
     <div class="text-center border">
         <h1 class="display-4"><b>Welcome</b></h1>
         <p><i>How can I help you...?</i></p>
     </div>
-    <div class="mt-3 ">
+    <div class="mt-3 mb-3">
         <form asp-controller="Home" asp-action="Home" class="d-flex justify-content-center" role="search">
             <input class="form-control w-50 me-2" type="search" placeholder="Search" name="userSearch" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
@@ -21,9 +21,24 @@
     </div>
     @if (@Model is not null)
     {
-        <p>
+        @*<p>
+            <h3>@Model.Question</h3>
+            <span><b>Ans -</b></span>
             @Model.user_result
-        </p>
+            </p>*@
+        @if(@Model.today_history is not null)
+        {
+          @foreach (var todayHist in @Model.today_history)
+            {
+                <p>
+                    <h4>@todayHist.Question</h4>
+                    <span><b>Ans - </b></span>
+                    @todayHist.Answer
+                </p>
+
+            }  
+        }
+        
     }
 </div>
 

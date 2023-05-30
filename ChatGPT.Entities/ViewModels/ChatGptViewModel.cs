@@ -11,6 +11,7 @@ namespace ChatGPT.Entities.ViewModels
         public int MobileNumber { get; set; }
         public String? Password { get; set; }
         public List<UserHistory> getHistory { get; set;}
-
+        public List<UserHistory> today_history { get; set;}
+        public string? Question { get; set; }   
     }
 }

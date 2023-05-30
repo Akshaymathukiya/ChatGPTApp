@@ -74,12 +74,14 @@ namespace ChatGPTApp.Controllers
 
         public IActionResult Home()
         {
+            ChatGptViewModel user_history = new ChatGptViewModel();
             int user_id = HttpContext.Session.GetInt32("userId") ?? 0;
             if (user_id == 0)
             {
                 return View("Index");
             }
-            return View();
+            user_history.today_history = _iUserRepo.getTodaysHistory(user_id);
+            return View("Home", user_history);
         }
         
         public class ChatCompletionResponse
@@ -102,7 +104,7 @@ namespace ChatGPTApp.Controllers
         {
             var httpClient = new HttpClient();
             var apiUrl = "https://api.openai.com/v1/chat/completions";
-            var apiKey = "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"; // Replace with your actual API key
+            var apiKey = "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";
 
             var payload = new
             {
@@ -111,9 +113,9 @@ namespace ChatGPTApp.Controllers
             new { role = "system", content = "You are a helpful assistant." },
             new { role = "user", content = userSearch }
         },
-                model = "gpt-3.5-turbo",
-                max_tokens = 4000,
-                temperature = 0.5
+                model = "gpt-3.5-turbo"
+                //max_tokens = 4000,
+                //temperature = 0.5
             };
 
             var jsonPayload = JsonConvert.SerializeObject(payload);
@@ -167,8 +169,11 @@ namespace ChatGPTApp.Controllers
             ////store the user history
             var model = await GetChatCompletionAsync(userSearch);
             var a = model.ToString();
+            chatGPTModel.Question = userSearch;
             chatGPTModel.user_result = a;
             _iUserRepo.user_history(user_id, userSearch, a);
+            chatGPTModel.today_history = _iUserRepo.getTodaysHistory(user_id);
+
             return View(chatGPTModel);
         }
 
