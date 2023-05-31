@@ -3,10 +3,9 @@ using ChatGPT.Entities.ViewModels;
 using ChatGPT.Repository.Interface;
 using ChatGPTApp.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using OpenAI_API;
-using OpenAI_API.Completions;
 using System.Diagnostics;
 using System.Text;
 
@@ -15,13 +14,19 @@ namespace ChatGPTApp.Controllers
     public class HomeController : Controller
     {
         private readonly IUserRepository _iUserRepo;
-        public HomeController(IUserRepository userRepo)
+        private readonly IConfiguration _confige;
+        public HomeController(IUserRepository userRepo, IConfiguration confige)
         {
             _iUserRepo = userRepo;
+            _confige = confige;    
         }
+        [AllowAnonymous]
         public IActionResult Index()
         {
-            return View();
+            //var token = HttpContext.Request.Cookies["token"]?.ToString();
+            
+                return View();
+            
         }
 
         [HttpPost]
@@ -37,6 +42,11 @@ namespace ChatGPTApp.Controllers
             {
                 if (model.Email == newUser.Email && model.Password == newUser.Password)
                 {
+                   
+                    TokenManager tokenManager = new TokenManager();
+                    var jwtsetting = _confige.GetSection(nameof(TokenKeyViewModel)).Get<TokenKeyViewModel>();
+                    var token = tokenManager.GenerateToken(jwtsetting, newUser);
+                    HttpContext.Response.Cookies.Append("token", token, new CookieOptions { HttpOnly = true, Secure = true, SameSite = SameSiteMode.None, Expires = DateTime.Now.AddDays(1) });
                     HttpContext.Session.SetString("userName", newUser.Firstname + " " + newUser.Lastname);
                     HttpContext.Session.SetInt32("userId", newUser.Id);
 
@@ -57,6 +67,7 @@ namespace ChatGPTApp.Controllers
             //HttpContext.SignOutAsync().Wait();
             HttpContext.Session.Clear();
             TempData["success"] = "Logout Successfully";
+            HttpContext.Response.Cookies.Delete("token");
             return RedirectToAction("Index");
         }
 
@@ -67,11 +78,13 @@ namespace ChatGPTApp.Controllers
         [HttpPost]
         public IActionResult AddUsers(ChatGptViewModel user_data)
         {
+           
             var addUser = _iUserRepo.AddUserData(user_data);
             return Json(new { success = true, redirectUrl = "/Home/Index" });
 
         }
 
+        [Authorize]
         public IActionResult Home()
         {
             ChatGptViewModel user_history = new ChatGptViewModel();
@@ -83,36 +96,37 @@ namespace ChatGPTApp.Controllers
             user_history.today_history = _iUserRepo.getTodaysHistory(user_id);
             return View("Home", user_history);
         }
-        
-        public class ChatCompletionResponse
-        {
-            public Choice[] Choices { get; set; }
-        }
 
-        public class Choice
-        {
-            public Message Message { get; set; }
-        }
+        //public class ChatCompletionResponse
+        //{
+        //    public Choice[] Choices { get; set; }
+        //}
 
-        public class Message
-        {
-            [JsonProperty("resultobject")]
-            public string ResultObject { get; set; }
-        }
+        //public class Choice
+        //{
+        //    public Message Message { get; set; }
+        //}
 
-        public async Task<string> GetChatCompletionAsync(string userSearch)
+        //public class Message
+        //{
+        //    [JsonProperty("resultobject")]
+        //    public string ResultObject { get; set; }
+        //}
+
+        public async Task<string> GetChatCompletionAsync(string userSearch, string userAssistant)
         {
             var httpClient = new HttpClient();
             var apiUrl = "https://api.openai.com/v1/chat/completions";
-            var apiKey = "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";
+            var apiKey = "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";
 
             var payload = new
             {
                 messages = new[]
                 {
-            new { role = "system", content = "You are a helpful assistant." },
-            new { role = "user", content = userSearch }
-        },
+                   // new { role = "system", content = userAssistant },
+                    new { role = "user", content = userSearch },
+                    new { role = "assistant", content = userAssistant }
+                },
                 model = "gpt-3.5-turbo"
                 //max_tokens = 4000,
                 //temperature = 0.5
@@ -136,8 +150,8 @@ namespace ChatGPTApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Home(string userSearch)
-            {
+        public async Task<IActionResult> Home(string userSearch, String userAssistant)
+        {
             int user_id = HttpContext.Session.GetInt32("userId") ?? 0;
             if (user_id == 0)
             {
@@ -167,11 +181,11 @@ namespace ChatGPTApp.Controllers
             //chatGPTModel.user_result = result;
 
             ////store the user history
-            var model = await GetChatCompletionAsync(userSearch);
+            var model = await GetChatCompletionAsync(userSearch, userAssistant);
             var a = model.ToString();
-            chatGPTModel.Question = userSearch;
-            chatGPTModel.user_result = a;
-            _iUserRepo.user_history(user_id, userSearch, a);
+
+            var question = userSearch + " " + userAssistant;
+            _iUserRepo.user_history(user_id, question, a);
             chatGPTModel.today_history = _iUserRepo.getTodaysHistory(user_id);
 
             return View(chatGPTModel);
@@ -181,7 +195,7 @@ namespace ChatGPTApp.Controllers
         {
             ChatGptViewModel userHistory = new ChatGptViewModel();
             int user_id = HttpContext.Session.GetInt32("userId") ?? 0;
-            if(user_id == 0)
+            if (user_id == 0)
             {
                 return View("Index");
             }
@@ -197,7 +211,7 @@ namespace ChatGPTApp.Controllers
             var delete_history = _iUserRepo.delete_history(id);
             userHistory.getHistory = _iUserRepo.getHistory(user_id);
 
-            return PartialView("_UserHistory",userHistory);
+            return PartialView("_UserHistory", userHistory);
         }
 
         public IActionResult Privacy()

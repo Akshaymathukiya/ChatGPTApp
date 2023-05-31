@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "1D7svwaDKzum6jIOtUnkmjjRLLWMoXeLzBTi5wMWFSyFnjTMonRogzB9kQ7fbCbEvzMWKDPyGS5/qNZXhgI9Jg==",
+  "dgSpecHash": "yYoHnA1ppuApu0IvnDklk7P9+KQqav6rXoqGzaRWfh4Uj8KWPmLYYXOESaMdjahhJp5M4LHA4CbOXZO9aDx/zw==",
   "success": true,
   "projectFilePath": "C:\\Users\\pct230\\source\\repos\\ChatGPTApp\\ChatGPT.Entities\\ChatGPT.Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pct230\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\pct230\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\pct230\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\pct230\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.16\\microsoft.aspnetcore.authentication.jwtbearer.6.0.16.nupkg.sha512",
     "C:\\Users\\pct230\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\pct230\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",

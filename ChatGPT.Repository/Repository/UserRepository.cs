@@ -75,7 +75,7 @@ namespace ChatGPT.Repository.Repository
             DateTime currentDate = DateTime.Now;
             DateTime dateOnly = currentDate.Date;
 
-            var todayHist = _db.UserHistories.Where(u=>u.UserId==userId && u.CreatedAt.Date == dateOnly).ToList();
+            var todayHist = _db.UserHistories.Where(u=>u.UserId==userId && u.CreatedAt.Date == dateOnly).OrderByDescending(u=>u.CreatedAt).ToList();
             return todayHist;
         }
         public bool delete_history(int id)

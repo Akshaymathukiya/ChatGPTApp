@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xT9jldpJGmfbsDCyX8oM5t3Y3KUj48iZi4I8e4uRqlIavtfjRZM4IW4I/FoHdYkn8DLfSI1/Y6gU9sGJbyPvDw==",
+  "dgSpecHash": "4PjjPhVrMjYE20AIqhlQkJHuZ7zxzFnXYu2csbGkRg+vHRnabTg6HuvkI3WKaOWFk7ROLxwgXfMLjJzqUR0dcg==",
   "success": true,
   "projectFilePath": "C:\\Users\\pct230\\source\\repos\\ChatGPTApp\\ChatGPTApp\\ChatGPTApp.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\pct230\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\pct230\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\pct230\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
+    "C:\\Users\\pct230\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.16\\microsoft.aspnetcore.authentication.jwtbearer.6.0.16.nupkg.sha512",
     "C:\\Users\\pct230\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.0\\microsoft.aspnetcore.razor.language.6.0.0.nupkg.sha512",
     "C:\\Users\\pct230\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "C:\\Users\\pct230\\.nuget\\packages\\microsoft.build\\17.3.2\\microsoft.build.17.3.2.nupkg.sha512",

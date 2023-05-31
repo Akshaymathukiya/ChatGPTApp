@@ -292,3 +292,4 @@ C:\Users\pct230\source\repos\ChatGPTApp\ChatGPTApp\obj\Debug\net6.0\ChatGPTApp.d
 C:\Users\pct230\source\repos\ChatGPTApp\ChatGPTApp\obj\Debug\net6.0\ref\ChatGPTApp.dll
 C:\Users\pct230\source\repos\ChatGPTApp\ChatGPTApp\obj\Debug\net6.0\ChatGPTApp.pdb
 C:\Users\pct230\source\repos\ChatGPTApp\ChatGPTApp\obj\Debug\net6.0\ChatGPTApp.genruntimeconfig.cache
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPTApp\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
