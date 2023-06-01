@@ -1,0 +1,26 @@
+﻿<div class="mt-5">
+
+    @{
+        ViewBag.Title = "Upload your documents";
+    }
+
+    <h2>Upload Files</h2>
+
+    @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            <label for="file">Select Your File:</label>
+            <input type="file" id="file" name="files" multiple /><br />
+            <small class="text-danger">* Only PDF, JPEG, PNG files allowed,<br />* Maximum file size 10MB</small>
+        </div>
+        <div>
+            <input type="submit" value="Upload" />
+        </div>
+    }
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
+</div>

@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\pct230\source\repos\ChatGPTApp\ChatGPTApp
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/pct230/source/repos/ChatGPTApp/ChatGPTApp/Views/Home/Documents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEb2N1bWVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/pct230/source/repos/ChatGPTApp/ChatGPTApp/Views/Home/Home.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

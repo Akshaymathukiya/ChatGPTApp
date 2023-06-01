@@ -23,7 +23,7 @@
                     <span class="mx-2"><i class="bi bi-person-circle m-1"></i>@Accesor?.HttpContext.Session.GetString("userName")</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                    <li><a class="dropdown-item" asp-action="Documents">Upload Document</a></li>
                     <li><a class="dropdown-item" asp-action="UserHistory">History</a></li>
                     <li><a class="dropdown-item" asp-action="logout_user">Logout</a></li>
                 </ul>

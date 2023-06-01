@@ -20,13 +20,12 @@ namespace ChatGPTApp.Controllers
             _iUserRepo = userRepo;
             _confige = confige;    
         }
+
         [AllowAnonymous]
         public IActionResult Index()
         {
             //var token = HttpContext.Request.Cookies["token"]?.ToString();
-            
                 return View();
-            
         }
 
         [HttpPost]
@@ -42,7 +41,6 @@ namespace ChatGPTApp.Controllers
             {
                 if (model.Email == newUser.Email && model.Password == newUser.Password)
                 {
-                   
                     TokenManager tokenManager = new TokenManager();
                     var jwtsetting = _confige.GetSection(nameof(TokenKeyViewModel)).Get<TokenKeyViewModel>();
                     var token = tokenManager.GenerateToken(jwtsetting, newUser);
@@ -117,7 +115,7 @@ namespace ChatGPTApp.Controllers
         {
             var httpClient = new HttpClient();
             var apiUrl = "https://api.openai.com/v1/chat/completions";
-            var apiKey = "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";
+            var apiKey = "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";
 
             var payload = new
             {
@@ -213,6 +211,12 @@ namespace ChatGPTApp.Controllers
 
             return PartialView("_UserHistory", userHistory);
         }
+
+        public IActionResult Documents()
+        {
+            return View();
+        }
+
 
         public IActionResult Privacy()
         {
