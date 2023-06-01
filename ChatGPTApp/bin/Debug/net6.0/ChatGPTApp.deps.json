@@ -2503,11 +2503,35 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "xunit.abstractions/2.0.1": {
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "runtime": {
+          "lib/netstandard1.0/xunit.abstractions.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "xunit.extensibility.core/2.3.0": {
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "xunit.abstractions": "2.0.1"
+        },
+        "runtime": {
+          "lib/netstandard1.1/xunit.core.dll": {
+            "assemblyVersion": "2.3.0.3820",
+            "fileVersion": "2.3.0.3820"
+          }
+        }
+      },
       "ChatGPT.Entities/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.16",
           "Microsoft.EntityFrameworkCore": "7.0.5",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5"
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5",
+          "xunit.extensibility.core": "2.3.0"
         },
         "runtime": {
           "ChatGPT.Entities.dll": {}
@@ -3868,6 +3892,20 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "xunit.abstractions/2.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bDm/zdG5rnRDsobKuKwrvL4HccBdC0uvT12be6fG12P3d1U7u9Wkvfoq/PM2GeyIeb0Dtcmm/7k2oaawiqQ2Dg==",
+      "path": "xunit.abstractions/2.0.1",
+      "hashPath": "xunit.abstractions.2.0.1.nupkg.sha512"
+    },
+    "xunit.extensibility.core/2.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lDcvhWeHG22MPwjxxaSIGKumikSBf3Wyw1T5Yu7WPPpQI8e1O2zp05OfCHr2s2hxBL1yAPGIYm+9FCFMqY3lbg==",
+      "path": "xunit.extensibility.core/2.3.0",
+      "hashPath": "xunit.extensibility.core.2.3.0.nupkg.sha512"
     },
     "ChatGPT.Entities/1.0.0": {
       "type": "project",

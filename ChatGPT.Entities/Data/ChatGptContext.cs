@@ -16,6 +16,8 @@ public partial class ChatGptContext : DbContext
     {
     }
 
+    public virtual DbSet<Document> Documents { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
 
     public virtual DbSet<UserHistory> UserHistories { get; set; }
@@ -26,6 +28,25 @@ public partial class ChatGptContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Document>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Document__3213E83F46A60486");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Document1)
+                .IsUnicode(false)
+                .HasColumnName("Document");
+            entity.Property(e => e.Name)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("name");
+            entity.Property(e => e.UserId).HasColumnName("user_id");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Documents)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK__Documents__Docum__6FE99F9F");
+        });
+
         modelBuilder.Entity<User>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__users__3213E83FE244DCDD");

@@ -68,6 +68,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.5, )"
+            },
+            "xunit.extensibility.core": {
+              "target": "Package",
+              "version": "[2.3.0, )"
             }
           },
           "imports": [

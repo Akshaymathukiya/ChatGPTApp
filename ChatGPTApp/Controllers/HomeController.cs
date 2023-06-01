@@ -217,7 +217,79 @@ namespace ChatGPTApp.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Documents(List<IFormFile> files)
+        {
+            int user_id = HttpContext.Session.GetInt32("userId") ?? 0;
 
+            try
+            {
+                // Check if any files were selected
+                if (files == null || !files.Any())
+                {
+                    ModelState.AddModelError("", "No files selected.");
+                    return View("Documents");
+                }
+
+                // Validate the number of files
+                int maxFiles = 10;
+                if (files.Count() > maxFiles)
+                {
+                    ModelState.AddModelError("", $"Maximum {maxFiles} file(s) can be imported.");
+                    return View("Documents");
+                }
+
+                // Validate file size
+                long maxFileSize = 10 * 1024 * 1024; // 10MB
+                long totalSize = 0;
+                foreach (var file in files)
+                {
+                    if (file.Length > maxFileSize)
+                    {
+                        ModelState.AddModelError("", $"File '{file.FileName}' exceeds the maximum allowed size of 10MB.");
+                        return View("Documents");
+                    }
+
+                    totalSize += file.Length;
+                }
+
+                // Validate file types
+                var allowedFileTypes = new[] { ".pdf", ".jpeg", ".jpg", ".png" };
+                foreach (var file in files)
+                {
+                    var fileExtension = Path.GetExtension(file.FileName).ToLower();
+                    if (!allowedFileTypes.Contains(fileExtension))
+                    {
+                        ModelState.AddModelError("", $"File '{file.FileName}' has an unsupported file type. Only PDF, JPEG, and PNG files are allowed.");
+                        return View("Documents");
+                    }
+                }
+
+                // Read file content and store in the database using base64 encoding
+                foreach (var file in files)
+                {
+                    using (var binaryReader = new MemoryStream())
+                    {
+                        file.CopyToAsync(binaryReader);
+                        var fileData = binaryReader.ToArray();
+
+                        //var base64FileData = Convert.ToBase64String(fileData);
+
+                        // Save the file data to the database using the repository
+                        var store_doc = _iUserRepo.store_doc(file.FileName, fileData, user_id);
+                        
+                    }
+                }
+
+                return RedirectToAction("Home");
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions
+                ModelState.AddModelError("", "An error occurred while uploading the files: " + ex.Message);
+                return View("Documents");
+            }
+        }
         public IActionResult Privacy()
         {
             return View();

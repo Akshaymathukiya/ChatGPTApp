@@ -92,5 +92,18 @@ namespace ChatGPT.Repository.Repository
                 return false;
             }
         }
+
+        public bool store_doc(string file_name, byte[] fileData, int user_id)
+        {
+            string base64 = Convert.ToBase64String(fileData);
+
+            Document docs = new Document();
+            docs.UserId = user_id;
+            docs.Name = file_name;
+            docs.Document1 = base64;
+            _db.Documents.Add(docs);
+            _db.SaveChanges();
+            return true;
+        }
     }
 }

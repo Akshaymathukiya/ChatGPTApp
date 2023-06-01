@@ -1,26 +1,23 @@
-﻿<div class="mt-5">
+﻿@model ChatGPT.Entities.ViewModels.DocumentsViewModel
+
+<div class="mt-5">
 
     @{
         ViewBag.Title = "Upload your documents";
     }
 
-    <h2>Upload Files</h2>
 
-    @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Documents", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <div>
-            <label for="file">Select Your File:</label>
-            <input type="file" id="file" name="files" multiple /><br />
+            <label for="fileInput">Select Files:</label>
+            <input type="file" asp-for="Files" id="fileInput" multiple /><br/>
             <small class="text-danger">* Only PDF, JPEG, PNG files allowed,<br />* Maximum file size 10MB</small>
         </div>
-        <div>
-            <input type="submit" value="Upload" />
+        <button class="border-1" type="submit">Upload</button>
+
+        <div class="text-danger">
+            @Html.ValidationSummary()
         </div>
     }
-
-    @if (ViewBag.Error != null)
-    {
-        <div class="alert alert-danger">@ViewBag.Error</div>
-    }
-
 </div>

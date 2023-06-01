@@ -293,3 +293,5 @@ C:\Users\pct230\source\repos\ChatGPTApp\ChatGPTApp\obj\Debug\net6.0\ref\ChatGPTA
 C:\Users\pct230\source\repos\ChatGPTApp\ChatGPTApp\obj\Debug\net6.0\ChatGPTApp.pdb
 C:\Users\pct230\source\repos\ChatGPTApp\ChatGPTApp\obj\Debug\net6.0\ChatGPTApp.genruntimeconfig.cache
 C:\Users\pct230\source\repos\ChatGPTApp\ChatGPTApp\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPTApp\bin\Debug\net6.0\xunit.abstractions.dll
+C:\Users\pct230\source\repos\ChatGPTApp\ChatGPTApp\bin\Debug\net6.0\xunit.core.dll
