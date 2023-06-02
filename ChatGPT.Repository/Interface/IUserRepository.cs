@@ -16,7 +16,8 @@ namespace ChatGPT.Repository.Interface
         public List<UserHistory> getHistory(int userId);
         public bool delete_history(int id);
         public List<UserHistory> getTodaysHistory(int userId);
-        public bool store_doc(string file_name, byte[] fileData, int user_id);
+        public bool store_doc(string file_name, byte[] fileData, int user_id, string fileExtension);
+        public List<Document> uploded_docs(int user_id);
 
     }
 }

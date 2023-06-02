@@ -212,9 +212,15 @@ namespace ChatGPTApp.Controllers
             return PartialView("_UserHistory", userHistory);
         }
 
+        //=========================================== Document part ============================
         public IActionResult Documents()
         {
-            return View();
+            int user_id = HttpContext.Session.GetInt32("userId") ?? 0;
+            var docs =  _iUserRepo.uploded_docs(user_id);
+            DocumentsViewModel documentsViewModel = new DocumentsViewModel();
+            documentsViewModel.docs = docs;
+
+            return View(documentsViewModel);
         }
 
         [HttpPost]
@@ -268,6 +274,8 @@ namespace ChatGPTApp.Controllers
                 // Read file content and store in the database using base64 encoding
                 foreach (var file in files)
                 {
+                    var fileExtension = Path.GetExtension(file.FileName).ToLower();
+
                     using (var binaryReader = new MemoryStream())
                     {
                         file.CopyToAsync(binaryReader);
@@ -276,11 +284,11 @@ namespace ChatGPTApp.Controllers
                         //var base64FileData = Convert.ToBase64String(fileData);
 
                         // Save the file data to the database using the repository
-                        var store_doc = _iUserRepo.store_doc(file.FileName, fileData, user_id);
+                        var store_doc = _iUserRepo.store_doc(file.FileName, fileData, user_id, fileExtension);
                         
                     }
                 }
-
+                TempData["success"] = "Files uploaded Successfully";
                 return RedirectToAction("Home");
             }
             catch (Exception ex)

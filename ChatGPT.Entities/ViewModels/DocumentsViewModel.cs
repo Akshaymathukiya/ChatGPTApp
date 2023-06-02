@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ChatGPT.Entities.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,6 +14,7 @@ namespace ChatGPT.Entities.ViewModels
     public class DocumentsViewModel
     {
         public List<IFormFile> Files { get; set; }
+        public List<Document> docs { get; set; }
 
     }
 }

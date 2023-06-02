@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using ChatGPT.Entities.ViewModels;
 using ChatGPT.Entities.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ChatGPT.Repository.Repository
 {
@@ -93,7 +95,7 @@ namespace ChatGPT.Repository.Repository
             }
         }
 
-        public bool store_doc(string file_name, byte[] fileData, int user_id)
+        public bool store_doc(string file_name, byte[] fileData, int user_id, string fileExtension)
         {
             string base64 = Convert.ToBase64String(fileData);
 
@@ -101,9 +103,28 @@ namespace ChatGPT.Repository.Repository
             docs.UserId = user_id;
             docs.Name = file_name;
             docs.Document1 = base64;
+            if(fileExtension == ".pdf")
+            {
+                docs.Type = "pdf";
+            }
+            if(fileExtension == ".png")
+            {
+                docs.Type = "png";
+            }
+            if(fileExtension == ".jpeg" || fileExtension == ".jpg")
+            {
+                docs.Type = "jpg";
+            }
+
             _db.Documents.Add(docs);
             _db.SaveChanges();
             return true;
+        }
+
+       
+        public List<Document> uploded_docs(int user_id)
+        {
+            return _db.Documents.Where(d => d.UserId == user_id).ToList();
         }
     }
 }

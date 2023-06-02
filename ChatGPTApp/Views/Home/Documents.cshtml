@@ -11,7 +11,7 @@
     {
         <div>
             <label for="fileInput">Select Files:</label>
-            <input type="file" asp-for="Files" id="fileInput" multiple /><br/>
+            <input type="file" asp-for="Files" id="fileInput" multiple /><br />
             <small class="text-danger">* Only PDF, JPEG, PNG files allowed,<br />* Maximum file size 10MB</small>
         </div>
         <button class="border-1" type="submit">Upload</button>
@@ -20,4 +20,34 @@
             @Html.ValidationSummary()
         </div>
     }
+
+    <h3>Uploded Document</h3>
+    @if(@Model.docs != null){
+    @foreach (var i in @Model.docs)
+    {
+        if (@i.Type == "pdf")
+        {
+
+            <div class="row">
+                <b class="col-8">@i.Name</b>
+                <a class="col" href="data:application/pdf;base64,@i.Document1" target="_blank">View</a>
+                <a class="col" href="data:application/pdf;base64,@i.Document1" download>Download</a>
+            </div>
+        }
+        if (@i.Type == "png" || @i.Type == "jpg")
+        {
+            <div class="row">
+                <b class="col-8">@i.Name</b>
+                <a class="col" href="data:image/png;base64,@i.Document1" target="_blank">View</a>
+                <a class="col" href="data:image/png;base64,@i.Document1" download>Download</a>
+            </div>
+
+
+            //<img style="height:50px; width:70px;" src="data:image/png;base64,@i.Document1" />
+        }
+
+    }
+    }
+
+
 </div>
